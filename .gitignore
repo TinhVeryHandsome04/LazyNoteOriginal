@@ -1,3 +1,10 @@
 node_modules/
-backend/.env
-backend/seed.js
+backend/node_modules/
+frontend/node_modules/
+
+# Bỏ qua môi trường
+.env
+
+
+# Bỏ qua build
+frontend/build/
