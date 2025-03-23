@@ -1,3 +1,4 @@
+require("dotenv").config();
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -15,7 +16,7 @@ const register = async (req, res) => {
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ newUser });
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
@@ -27,16 +28,22 @@ const login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "email is corrected" });
     }
-
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "password is corrected" });
+    }
+    if(!process.env.JWT_SECRET){
+      console.log('JSON_SECRET is missinng');
+      return res.status(500).json({
+        sucess:false,
+        message: "Loi cau hinh server"
+      });
     }
 
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "72h",
+    const token = jwt.sign({ userId: user._id.toString() }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
     });
 
     res.json({
