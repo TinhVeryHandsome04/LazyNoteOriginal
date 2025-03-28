@@ -7,10 +7,12 @@ const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const mongoConnect = require("./config/db");
 const chatRoutes = require("./routes/chatRoutes");
+const morgan = require('morgan')
+
 //middleware
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(morgan());
 mongoConnect();
 
 app.use("/api/auth", authRoutes);
