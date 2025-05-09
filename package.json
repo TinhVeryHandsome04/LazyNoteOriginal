@@ -1,0 +1,47 @@
+{
+  "name": "lazynoteoriginal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd frontend && npm start",
+    "server": "cd backend && nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinhVeryHandsome04/LazyNoteOriginal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TinhVeryHandsome04/LazyNoteOriginal/issues"
+  },
+  "homepage": "https://github.com/TinhVeryHandsome04/LazyNoteOriginal#readme",
+  "dependencies": {
+    "@floating-ui/react": "^0.27.8",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "all": "^0.0.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.12.1",
+    "nodemailer": "^7.0.3",
+    "react": "^18.3.1",
+    "react-datepicker": "^4.15.0",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-onclickoutside": "^6.13.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9"
+  }
+}

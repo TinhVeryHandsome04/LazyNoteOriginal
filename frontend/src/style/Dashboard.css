@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fafafa;
+    position: relative;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 240px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.sidebar.collapsed~.dashboard-content {
+    margin-left: 80px;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+    color: #2d3748;
+}
+
+.date-range {
+    font-size: 14px;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+}
+
+.date-range input {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.date-range button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.date-range button:hover {
+    background-color: #2b6cb0;
+}
+
+/* Overview Stats */
+.overview-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.icon-income {
+    background-color: #f0f5ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-income .icon {
+    color: #5c92ff;
+    margin: 10px;
+}
+
+.icon-fixed-expense {
+    background-color: #fff7e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-fixed-expense .icon {
+    color: #ffc226;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.icon-flexible-expense {
+    background-color: #fff4f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-flexible-expense .icon {
+    color: #ff906b;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.icon-transactions {
+    background-color: #efefff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-transactions .icon {
+    color: #615cff;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.stat-card p {
+    font-size: 14px;
+    color: #4a5568;
+    margin: 0;
+}
+
+.stat-card h3 {
+    font-size: 18px;
+    color: #2d3748;
+    margin: 0;
+}
+
+/* Charts Section */
+.charts-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-card {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+    font-size: 16px;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.line-chart-placeholder,
+.donut-chart-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7fafc;
+    border-radius: 8px;
+}
+
+.donut-chart {
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(#3182ce 0% 80%, #f7fafc 80% 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #2d3748;
+    position: relative;
+}
+
+.donut-chart::before {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.chart-legend {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.dot.blue {
+    background-color: #3182ce;
+}
+
+.dot.yellow {
+    background-color: #f6e05e;
+}
+
+.dot.orange {
+    background-color: #f56565;
+}
+
+/* Bottom Section */
+.bottom-section {
+    display: flex;
+    gap: 20px;
+}
+
+.transactions-card {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-card h3 {
+    font-size: 16px;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.transactions-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-card th,
+.transactions-card td {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.transactions-card th {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.transactions-card tr:nth-child(even) {
+    background-color: #f7fafc;
+}
+
+.positive {
+    color: #38a169;
+}
+
+.negative {
+    color: #e53e3e;
+}
+
+.surplus-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.surplus-card h3 {
+    font-size: 16px;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .dashboard-content {
+        margin-left: 80px;
+        padding: 15px;
+    }
+
+    .overview-stats {
+        flex-direction: column;
+    }
+
+    .charts-section {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar.collapsed~.dashboard-content {
+        margin-left: 0;
+    }
+
+    .overview-stats {
+        flex-direction: column;
+    }
+
+    .charts-section {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,737 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Định dạng Header */
+.header {
+  position: fixed;
+  /* Cố định trên cùng */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: hsl(0, 0%, 98%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Logo + LazyNote */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #030229;
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+/* Định dạng màu */
+.sign-up {
+  color: black;
+}
+
+
+
+.login:hover {
+  background-color: rgba(255, 214, 107, 1);
+  color: white;
+}
+
+.hero,
+.hero * {
+  box-sizing: border-box;
+}
+
+.hero {
+  background: var(--maincolor, #ffd66b);
+  padding: 70px 85px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1340px;
+  height: 570px;
+  margin-top: 100px;
+}
+
+.hero .frame {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 615px;
+}
+
+.hero .title {
+  color: #000000;
+  text-align: left;
+  font-family: "Baloo2-Bold", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.hero .sub-title {
+  color: #000000;
+  text-align: justified;
+  font-family: "-", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  height: 150px;
+}
+
+.hero .sub-title-1,
+.hero .sub-title-3 {
+  font-family: "Baloo2-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.hero .sub-title-2 {
+  font-family: "Baloo2-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.register-btn {
+  background: #d12e34;
+  border-radius: 20px;
+  border: 1px solid #000000;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.register-text {
+  color: var(--white, #ffffff);
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-btn:hover {
+  background-color: #c82333;
+}
+
+.hero .image-1 {
+  width: 600px;
+  height: 474px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero .image-1 img {
+  width: 100%;
+  height: auto;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
+  width: 1340px;
+  margin: auto;
+}
+
+.feature .feature-img {
+  width: 100%;
+  height: auto;
+
+}
+
+/* Footer container */
+.footer {
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-right {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* Login.css */
+
+/* Container tổng */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(135vh - 135px);
+  padding: 80px 0;
+}
+
+/* Card đăng nhập */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+.header-logo a {
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 22px;
+  color: #000;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.nav-link.login {
+  background-color: #fab950;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+a.nav-link.login b {
+  font-weight: 600;
+
+}
+
+a.nav-link.sign-up {
+  padding: 10px;
+  font-weight: 400;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+
+.login-header p {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #333;
+  text-align: left;
+}
+
+.login-header span {
+  display: block;
+  /* Giúp span xuống dòng */
+  color: #777;
+  font-size: 16px;
+  text-align: left;
+
+}
+
+/* Thêm hiệu ứng icon emoji */
+.login-header p span {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 22px;
+  animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(20deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  height: 45px;
+  padding: 0 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  background-color: #f8f9fc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffcc50;
+  background-color: #fff;
+}
+
+/* Ghi nhớ đăng nhập */
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.remember-me-container input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  accent-color: #ffcc50;
+  cursor: pointer;
+  margin: 0;
+}
+
+.remember-me-container label {
+  font-size: 15px;
+  color: #222;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.forgot-link {
+  font-size: 15px;
+  color: #2d6cdf;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 75px;
+  white-space: nowrap;
+  transition: text-decoration 0.2s;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.frame a {
+  text-decoration: none;
+}
+
+/* Nút đăng nhập */
+.login-button {
+  width: 325px;
+  background: #ffd66b;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 0;
+  margin: 18px 0 10px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 214, 107, 0.10);
+}
+
+.login-button:hover {
+  background: #ffe08a;
+  color: #fff;
+}
+
+/* Hoặc */
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.or-divider span {
+  padding: 0 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Đăng nhập qua mạng xã hội */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.social-button img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.social-button:hover {
+  background-color: #f1f1f1;
+}
+
+/* register.css */
+/* Đăng ký */
+.register-link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.register-link a {
+  color: #f4b400;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f7f9fc;
+}
+
+/* Login Page Layout */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: white;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.logo-container {
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Register Container */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(115vh - 160px);
+  /* Giả sử header và footer cao 80px mỗi */
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+
+
+.register-form-wrapper {
+
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin-top: 50px;
+}
+
+.register-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.welcome-message p {
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.app-name {
+  color: #f4b400;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Form Styles */
+.register-form {
+  margin-top: 5px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #f4b400;
+  outline: none;
+}
+
+/* Error Handling */
+.error-text {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+input.error {
+  border-color: #dc3545;
+}
+
+/* Terms Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+  border-color: #f4b400;
+}
+
+.terms-text {
+  color: #555;
+}
+
+/* Error Message Display */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Button Styles */
+.register-button {
+  width: 100%;
+  background-color: #f4b400;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+.register-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.sidebar-container {
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 200px;
+  }
+
+  .dashboard-content {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar-container {
+    width: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-container.open {
+    width: 250px;
+    transform: translateX(0);
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+  }
+}
