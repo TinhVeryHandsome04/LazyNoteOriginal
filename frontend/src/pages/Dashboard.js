@@ -1,5 +1,6 @@
 // src/pages/Dashboard.js
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import '../style/Dashboard.css';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 import { FaArrowRightArrowLeft, FaArrowTrendDown } from "react-icons/fa6";
@@ -10,6 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format, parse } from 'date-fns';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import Chatbox from "../components/ChatBox";
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
@@ -23,14 +25,17 @@ const Dashboard = () => {
     flexibleExpense: 0,
     transactionCount: 0,
   });
-  const userName = "Username"; // Replace with dynamic username
+  
+  // Lấy thông tin người dùng từ localStorage
+  const userData = JSON.parse(localStorage.getItem('user') || '{}');
+  const userName = userData.name || "Guest";
 
   const fetchTransactions = async (start, end) => {
     try {
       const formattedStartDate = format(start, 'yyyy-MM-dd');
       const formattedEndDate = format(end, 'yyyy-MM-dd');
 
-      // Call API endpoint with date filters
+      
       const response = await fetch(`/api/transactions?start=${formattedStartDate}&end=${formattedEndDate}`, {
         headers: {
           'Content-Type': 'application/json'
@@ -328,6 +333,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Chatbox userName={userName} />
     </div>
   );
 };

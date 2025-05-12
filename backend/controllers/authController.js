@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 // Middleware giới hạn tần suất login
 const loginLimiter = expressRateLimit({
   windowMs: 15 * 60 * 1000, // 15 phút
-  max: 5, // Mỗi IP chỉ được 5 lần login trong 15 phút
+  max: 100, // Mỗi IP chỉ được 5 lần login trong 15 phút
   message: "Quá nhiều lần đăng nhập, vui lòng thử lại sau.",
 });
 
