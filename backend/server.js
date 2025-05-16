@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const authRoutes = require('./routes/authRoutes');
 const mongoConnect = require("./config/db");
+const chatRoutes = require('./routes/chat');
 
 // middleware
 app.use(cors({
@@ -19,6 +20,7 @@ mongoConnect();
 
 // Routes
 app.use('/api', authRoutes);
+app.use('/api/chat', chatRoutes);
 
 // Khởi động server
 const PORT = process.env.PORT || 5000;

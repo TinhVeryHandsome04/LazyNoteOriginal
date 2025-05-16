@@ -39,12 +39,24 @@ export default function Chatbox({ userName }) {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
     setMessages([...messages, { from: "user", text: input }]);
     setInput("");
-    // Ở đây bạn có thể thêm logic trả lời tự động của bot nếu muốn
+
+    // Gửi message lên backend để lấy phản hồi từ AI
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input })
+      });
+      const data = await res.json();
+      setMessages((prev) => [...prev, { from: "bot", text: data.reply }]);
+    } catch (err) {
+      setMessages((prev) => [...prev, { from: "bot", text: "Lỗi kết nối server!" }]);
+    }
   };
 
   return (
