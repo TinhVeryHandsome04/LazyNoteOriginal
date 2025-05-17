@@ -7,12 +7,9 @@ module.exports.postChat = async (req, res) => {
 
   // Lấy userId từ req.user (nếu đã xác thực)
   const userId = req.user?._id || req.user?.id || req.user?.userId;
-
+  console.log(req.user);
   try {
-    const botReply = await ai.generateBotReply(
-      messages.slice(-6),
-      userId 
-    );
+    const botReply = await ai.generateBotReply(messages.slice(-6), userId);
     messages.push({ role: "assistant", text: botReply });
     res.json({ reply: botReply });
   } catch (error) {
@@ -20,4 +17,4 @@ module.exports.postChat = async (req, res) => {
     messages.push({ role: "assistant", text: "Server error!!" });
     res.status(500).json({ reply: "Server error!!" });
   }
-}; 
+};

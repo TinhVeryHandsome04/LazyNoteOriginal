@@ -1,7 +1,7 @@
 const Record = require("../models/Record");
 const OpenAI = require("openai");
 
-const GPT_API = process.env.OPENAI_API_KEY;
+const GPT_API = "env";
 const openai = new OpenAI({
   apiKey: GPT_API,
 });

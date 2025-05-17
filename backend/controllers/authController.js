@@ -2,7 +2,7 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const expressRateLimit = require("express-rate-limit");
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 // Middleware giới hạn tần suất login
 const loginLimiter = expressRateLimit({
@@ -22,7 +22,9 @@ const register = async (req, res) => {
 
   // Kiểm tra mật khẩu phải dài tối thiểu 6 ký tự và có sự kết hợp của chữ cái và số
   if (password.length < 6) {
-    return res.status(400).json({ message: "Mật khẩu phải có ít nhất 6 ký tự." });
+    return res
+      .status(400)
+      .json({ message: "Mật khẩu phải có ít nhất 6 ký tự." });
   }
 
   try {
@@ -44,7 +46,9 @@ const register = async (req, res) => {
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
 
-    res.status(201).json({ message: "Đăng ký người dùng thành công. Vui lòng đăng nhập." });
+    res
+      .status(201)
+      .json({ message: "Đăng ký người dùng thành công. Vui lòng đăng nhập." });
   } catch (error) {
     console.error(error);
 
@@ -54,7 +58,9 @@ const register = async (req, res) => {
       return res.status(400).json({ message: `${field} đã tồn tại.` });
     }
 
-    res.status(500).json({ message: "Lỗi máy chủ, vui lòng thử lại sau.", error });
+    res
+      .status(500)
+      .json({ message: "Lỗi máy chủ, vui lòng thử lại sau.", error });
   }
 };
 
@@ -64,33 +70,44 @@ const login = async (req, res) => {
 
   // Kiểm tra đầu vào
   if (!email || !password) {
-    return res.status(400).json({ message: "Vui lòng nhập đầy đủ thông tin đăng nhập." });
+    return res
+      .status(400)
+      .json({ message: "Vui lòng nhập đầy đủ thông tin đăng nhập." });
   }
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Thông tin đăng nhập không hợp lệ." });
+      return res
+        .status(400)
+        .json({ message: "Thông tin đăng nhập không hợp lệ." });
     }
 
     // Kiểm tra mật khẩu
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Thông tin đăng nhập không hợp lệ." });
+      return res
+        .status(400)
+        .json({ message: "Thông tin đăng nhập không hợp lệ." });
     }
 
     // Tạo token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id }, "key trong env", {
       expiresIn: "72h", // Token hết hạn sau 72 giờ
     });
-
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false,
+    });
     res.json({
       token,
       user: { id: user._id, username: user.username, email: user.email },
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Lỗi máy chủ, vui lòng thử lại sau.", error });
+    res
+      .status(500)
+      .json({ message: "Lỗi máy chủ, vui lòng thử lại sau.", error });
   }
 };
 
@@ -112,14 +129,18 @@ const forgotPassword = async (req, res) => {
 
   // Chỉ cho phép email Gmail
   if (!/^[\w.+-]+@gmail\.com$/i.test(email)) {
-    return res.status(400).json({ message: "Chỉ hỗ trợ gửi OTP tới địa chỉ Gmail." });
+    return res
+      .status(400)
+      .json({ message: "Chỉ hỗ trợ gửi OTP tới địa chỉ Gmail." });
   }
 
   // Kiểm tra user tồn tại
   const user = await User.findOne({ email });
   if (!user) {
     // Trả về thành công để tránh lộ thông tin email
-    return res.status(200).json({ message: "OTP đã được gửi về email nếu tài khoản tồn tại." });
+    return res
+      .status(200)
+      .json({ message: "OTP đã được gửi về email nếu tài khoản tồn tại." });
   }
 
   // Sinh OTP và lưu vào user
@@ -130,7 +151,7 @@ const forgotPassword = async (req, res) => {
 
   // Gửi email
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.EMAIL_USER, // email gửi đi
       pass: process.env.EMAIL_PASS, // mật khẩu ứng dụng
@@ -140,15 +161,17 @@ const forgotPassword = async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: 'Mã OTP đặt lại mật khẩu',
+    subject: "Mã OTP đặt lại mật khẩu",
     text: `Mã OTP của bạn là: ${otp}`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    return res.json({ message: "OTP đã được gửi về email nếu tài khoản tồn tại." });
+    return res.json({
+      message: "OTP đã được gửi về email nếu tài khoản tồn tại.",
+    });
   } catch (err) {
-    console.error('Lỗi gửi mail:', err);
+    console.error("Lỗi gửi mail:", err);
     return res.status(500).json({ message: "Không gửi được OTP về email." });
   }
 };
@@ -202,5 +225,5 @@ module.exports = {
   checkStatus,
   forgotPassword,
   verifyOtp,
-  resetPassword
+  resetPassword,
 };
